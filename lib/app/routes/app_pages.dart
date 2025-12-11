@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/ImageSourceView/bindings/image_source_view_binding.dart';
+import '../modules/ImageSourceView/views/image_source_view_view.dart';
 import '../modules/hasil/bindings/hasil_binding.dart';
 import '../modules/hasil/views/hasil_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -22,6 +24,12 @@ class AppPages {
       name: _Paths.HASIL,
       page: () => const HasilView(),
       binding: HasilBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.IMAGE_SOURCE_VIEW,
+      page: () => const ImageSourceViewView(),
+      binding: ImageSourceViewBinding(),
     ),
   ];
 }

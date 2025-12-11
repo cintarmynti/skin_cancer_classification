@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
+import '../../ImageSourceView/controllers/image_source_view_controller.dart';
+import '../../ImageSourceView/views/image_source_view_view.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -65,7 +67,20 @@ class HomeView extends GetView<HomeController> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final result = await Get.to(
+                      () => const ImageSourceViewView(),
+                      binding: BindingsBuilder(() {
+                        Get.put(ImageSourceViewController());
+                      }),
+                    );
+
+                    if (result != null) {
+                      print("Gambar dipilih: ${result.path}");
+                      // kamu bisa lanjut ke halaman hasil scan / preview juga
+                    }
+                  },
+
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     padding: const EdgeInsets.symmetric(vertical: 16),
