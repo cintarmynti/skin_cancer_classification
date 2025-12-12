@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:skin_cancer_classification/app/modules/home/views/home_view.dart';
+import 'package:skin_cancer_classification/app/routes/app_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter GetX Starter',
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      title: 'Flutter GetX Starter',
+      initialRoute: AppPages.INITIAL, // <- gunakan initial route
+      getPages: AppPages.routes, // <- daftar semua route GetX
     );
   }
 }
